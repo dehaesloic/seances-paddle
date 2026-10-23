@@ -8,45 +8,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --green:#3FA250; --green-dark:#235432; --ink:#181818; --paper:#F8F9FA; --white:#fff;
-  --muted:#5c636a; --line:#e9ecef; --card:#fff; --bg:#F8F9FA; --text:#181818;
+  --green:#3FA250; --green-dark:#235432; --ink:#181818; --paper:#F8F9FA;
+  --muted:#5c636a; --line:#e9ecef; --card:#fff; --bg:#F8F9FA; --text:#181818; --soft:#F8F9FA;
   --head:'Oswald','Arial Narrow',sans-serif; --body:'Roboto',system-ui,sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root{--bg:#181818;--card:#222;--text:#f1f3f5;--muted:#9aa1a8;--line:#333}
-}
+@media (prefers-color-scheme: dark){:root{--bg:#181818;--card:#222;--text:#f1f3f5;--muted:#9aa1a8;--line:#333;--soft:#2c2c2c}}
 *{box-sizing:border-box;margin:0}
 body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.5;-webkit-tap-highlight-color:transparent}
 h1,h2,h3,.num{font-family:var(--head);text-transform:uppercase;letter-spacing:.02em}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px}
-header{background:var(--ink);color:#fff;padding:28px 0 22px;border-bottom:6px solid var(--green)}
+header{background:var(--ink);color:#fff;padding:26px 0 20px;border-bottom:6px solid var(--green)}
 header .tag{color:var(--green);font-family:var(--head);letter-spacing:.12em;font-size:.85rem}
-header h1{font-size:2.1rem;line-height:1.1;margin:4px 0 14px}
+header h1{font-size:2rem;line-height:1.1;margin:4px 0 12px}
 .stats{display:flex;gap:10px;flex-wrap:wrap}
 .stat{background:var(--green-dark);border-radius:10px;padding:8px 14px;font-size:.85rem}
-.stat b{display:block;font-family:var(--head);font-size:1.3rem;color:#fff}
+.stat b{display:block;font-family:var(--head);font-size:1.3rem}
 .bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 .bar .wrap{display:flex;gap:8px;padding-top:10px;padding-bottom:10px;align-items:center}
-.tab{flex:1;border:2px solid var(--green);background:transparent;color:var(--green);font:600 1rem var(--head);text-transform:uppercase;padding:10px;border-radius:10px;cursor:pointer}
+.tab{flex:1;border:2px solid var(--green);background:transparent;color:var(--green);font:600 .95rem var(--head);text-transform:uppercase;padding:10px 4px;border-radius:10px;cursor:pointer}
 .tab.on{background:var(--green);color:#fff}
 .icon{border:0;background:var(--line);color:var(--text);border-radius:10px;padding:10px 12px;cursor:pointer;font-size:1rem}
 .progress{height:6px;background:var(--line)}
 .progress i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
+.btn{background:var(--green);color:#fff;border:0;border-radius:10px;padding:10px 16px;font:600 .95rem var(--head);text-transform:uppercase;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--green);border:2px solid var(--green)}
+.btn.danger{background:transparent;color:#c0392b;border:2px solid #c0392b}
+.btn.sm{padding:6px 12px;font-size:.85rem}
+.chip{display:inline-block;border-radius:20px;padding:3px 11px;font:600 .8rem var(--head);letter-spacing:.04em;text-transform:uppercase;background:var(--soft);color:var(--muted);border:1px solid var(--line);cursor:default}
+button.chip{cursor:pointer}
+.chip.on{background:var(--green);color:#fff;border-color:var(--green)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
+h2.sec2{font-size:1.15rem;margin:24px 0 8px;color:var(--green-dark)}
+@media (prefers-color-scheme: dark){h2.sec2{color:var(--green)}}
+.hint{color:var(--muted);font-size:.9rem}
+
+/* séance */
 .block{margin:26px 0 8px}
 .block h2{font-size:1.3rem;color:var(--green-dark);display:flex;gap:10px;align-items:center}
 @media (prefers-color-scheme: dark){.block h2{color:var(--green)}}
-.block h2 span{background:var(--green);color:#fff;border-radius:50%;width:32px;height:32px;display:grid;place-items:center;font-size:1rem}
+.block h2 span{background:var(--green);color:#fff;border-radius:50%;width:32px;height:32px;display:grid;place-items:center;font-size:1rem;flex:none}
 .block p.why{color:var(--muted);font-size:.9rem;margin:2px 0 8px 42px}
 .row{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0}
 .row.done{opacity:.55}
 .row.done .rn{text-decoration:line-through}
 .chk{width:28px;height:28px;accent-color:var(--green);flex:none}
-.ico{font-size:1.6rem;width:44px;height:44px;border-radius:12px;background:var(--paper);display:grid;place-items:center;flex:none}
-@media (prefers-color-scheme: dark){.ico{background:#2c2c2c}}
+.ico{font-size:1.6rem;width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;flex:none}
 .rt{flex:1;cursor:pointer;min-width:0}
 .rn{font-weight:700}
 .rd{color:var(--muted);font-size:.88rem}
 .pill{background:var(--green);color:#fff;font-family:var(--head);border-radius:20px;padding:4px 12px;white-space:nowrap;font-size:.95rem}
+
+/* cartes */
 .cards{display:grid;gap:16px;margin:20px 0 40px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;scroll-margin-top:70px}
 .card.flash{outline:3px solid var(--green)}
@@ -56,24 +68,19 @@ header h1{font-size:2.1rem;line-height:1.1;margin:4px 0 14px}
 .ch h3{font-size:1.35rem;line-height:1.15}
 .cb{padding:16px}
 .dose{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.dose div{flex:1;min-width:80px;background:var(--paper);border-radius:12px;text-align:center;padding:10px 6px}
-@media (prefers-color-scheme: dark){.dose div{background:#2c2c2c}}
-.dose b{display:block;font:700 1.6rem var(--head);color:var(--green)}
+.dose div{flex:1;min-width:80px;background:var(--soft);border-radius:12px;text-align:center;padding:10px 6px}
+.dose b{display:block;font:700 1.5rem var(--head);color:var(--green)}
 .dose span{font-size:.75rem;color:var(--muted);text-transform:uppercase}
 .sec{margin:12px 0 4px;font:600 .85rem var(--head);letter-spacing:.1em;color:var(--green-dark);text-transform:uppercase}
 @media (prefers-color-scheme: dark){.sec{color:var(--green)}}
 .cb ul{padding-left:20px}
 .confirm{font-size:.82rem;color:#b35c00;background:#fff3e0;border-radius:8px;padding:6px 10px;margin-top:10px}
 .log{display:flex;gap:8px;margin-top:14px}
-.log input{flex:1;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;padding:10px;font:inherit}
-.btn{background:var(--green);color:#fff;border:0;border-radius:10px;padding:10px 16px;font:600 1rem var(--head);text-transform:uppercase;cursor:pointer}
-.timer{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:#fff;padding:12px 16px;display:none;align-items:center;gap:12px;border-top:4px solid var(--green);z-index:9}
-.timer.on{display:flex}
-.timer .t{font:700 2rem var(--head);flex:1}
-.hidden{display:none}
-footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 90px}
-.schema{background:var(--paper);border-radius:12px;padding:10px 6px 4px;margin-bottom:14px}
-@media (prefers-color-scheme: dark){.schema{background:#2c2c2c}}
+.log input,.field{flex:1;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;padding:10px;font:inherit;min-width:0;width:100%}
+
+/* schémas */
+.schema{background:var(--soft);border-radius:12px;padding:10px 6px 4px;margin-bottom:14px}
+.schema.big{font-size:3.4rem;text-align:center;padding:16px}
 .schema svg{display:block;margin:0 auto;width:100%;height:auto;overflow:visible}
 .schema .fig{stroke:var(--text);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
 .schema .back{opacity:.55}
@@ -84,84 +91,182 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 90px}
 .schema .gnd{stroke:var(--muted);stroke-width:2;opacity:.4}
 .schema .arr{stroke:var(--green);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .schema text{font:600 10px var(--head);fill:var(--muted);text-anchor:middle;letter-spacing:.06em;text-transform:uppercase}
-@media print{.schema{break-inside:avoid}}
-@media print{.bar,.timer,.log,.progress,.chk{display:none!important}.cards{display:block}.card{break-inside:avoid;margin-bottom:12px}#vue-seance,#vue-cartes{display:block!important}header{color:#000;background:#fff}}
+
+/* accueil */
+.sc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0}
+.sc h3{font-size:1.2rem}
+.sc .meta{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px;align-items:center}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.styles{display:grid;gap:10px;margin:12px 0}
+.style{display:flex;gap:12px;text-align:left;width:100%;background:var(--card);color:var(--text);border:2px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;font:inherit}
+.style:hover{border-color:var(--green)}
+.style .ico{flex:none}
+.style b{font-family:var(--head);text-transform:uppercase;font-size:1.05rem;display:block}
+.style span.d{color:var(--muted);font-size:.88rem}
+
+/* composeur */
+.eb{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:14px 0}
+.eb .top{display:flex;gap:8px;align-items:center}
+.tip{background:#e9f6ec;color:var(--green-dark);border-radius:10px;padding:8px 12px;font-size:.88rem;margin:8px 0}
+@media (prefers-color-scheme: dark){.tip{background:#1f3326;color:#bfe5c6}}
+.warn{background:#fff3e0;color:#8a4600;border-radius:10px;padding:8px 12px;font-size:.88rem;margin:6px 0}
+.it{display:flex;gap:8px;align-items:center;border-top:1px solid var(--line);padding:10px 0;flex-wrap:wrap}
+.it .nm{flex:1;min-width:140px;font-weight:700}
+.it input{width:64px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:8px;padding:6px;font:inherit;text-align:center}
+.it input.w{width:92px}
+.mini{border:0;background:var(--line);color:var(--text);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:1rem}
+.picker{background:var(--soft);border-radius:12px;padding:10px;margin-top:10px}
+.pk{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.pk:first-of-type{border-top:0}
+.pk .nm{flex:1}
+.form{display:grid;gap:10px;margin:12px 0}
+.form label{font:600 .8rem var(--head);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:grid;gap:4px}
+.hidden{display:none}
+.timer{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:#fff;padding:12px 16px;display:none;align-items:center;gap:12px;border-top:4px solid var(--green);z-index:9}
+.timer.on{display:flex}
+.timer .t{font:700 2rem var(--head);flex:1}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 90px}
+
+/* coach Tony */
+.coach{position:fixed;right:6px;bottom:0;z-index:20;display:flex;align-items:flex-end;pointer-events:none;transform:translateY(115%);transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
+.coach.show{transform:translateY(0)}
+.coach svg{width:104px;height:auto;flex:none}
+.bubble{position:relative;background:#fff;color:#181818;border:3px solid #181818;border-radius:18px;padding:8px 12px;margin:0 -6px 70px 0;max-width:170px;font:700 1.05rem/1.15 var(--head);text-transform:uppercase;letter-spacing:.02em;box-shadow:3px 3px 0 var(--green);transform:rotate(-2deg)}
+.bubble:after{content:"";position:absolute;right:-13px;bottom:14px;width:18px;height:18px;background:#fff;border-right:3px solid #181818;border-top:3px solid #181818;transform:rotate(45deg) skew(10deg,10deg)}
+@media (prefers-reduced-motion:reduce){.coach{transition:none}}
+@media print{.coach{display:none}}
+@media print{.bar,.timer,.log,.progress,.chk,.acts{display:none!important}.card{break-inside:avoid;margin-bottom:12px}header{color:#000;background:#fff}}
 </style>
 </head>
 <body>
-<header><div class="wrap">
-  <div class="tag" id="tag"></div>
-  <h1 id="titre"></h1>
-  <div class="stats" id="stats"></div>
-</div></header>
-<div class="bar"><div class="wrap">
-  <button class="tab on" data-v="seance">Séance</button>
-  <button class="tab" data-v="cartes">Cartes</button>
-  <button class="icon" id="reset" title="Tout décocher">↺</button>
-  <button class="icon" onclick="window.print()" title="Imprimer">🖨</button>
-</div><div class="progress"><i id="prog"></i></div></div>
-
-<main class="wrap">
-  <section id="vue-seance"></section>
-  <section id="vue-cartes" class="hidden cards"></section>
-</main>
-<div class="timer" id="timer"><div class="t" id="tt">1:30</div><button class="btn" id="tstop">Stop</button></div>
-<footer>Séance conçue par mon coach · version visuelle perso</footer>
+<header><div class="wrap"><div class="tag" id="tag"></div><h1 id="titre"></h1><div class="stats" id="stats"></div></div></header>
+<nav class="bar"><div class="wrap" id="nav"></div><div class="progress" id="progw"><i id="prog"></i></div></nav>
+<main class="wrap" id="main"></main>
+<div class="coach" id="coach" aria-live="polite"><div class="bubble" id="bubble">Bravo mon champion !</div>
+<svg viewBox="0 0 160 190" role="img" aria-label="Tony, le coach, en dessin">
+ <ellipse cx="22" cy="165" rx="15" ry="30" fill="#8a5a3c"/><ellipse cx="138" cy="165" rx="15" ry="30" fill="#8a5a3c"/>
+ <path d="M12 160 q8 -14 20 -6 M10 172 q10 -10 20 -2 M14 148 q9 4 8 14" stroke="#33200f" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".85"/>
+ <circle cx="22" cy="158" r="6" fill="none" stroke="#33200f" stroke-width="2" opacity=".85"/>
+ <path d="M34 190 L36 148 Q48 134 62 132 L98 132 Q112 134 124 148 L126 190Z" fill="#181818"/>
+ <path d="M62 132 Q80 156 98 132 L98 120 L62 120Z" fill="#7a4f33"/>
+ <rect x="64" y="104" width="32" height="30" rx="10" fill="#7a4f33"/>
+ <ellipse cx="40" cy="76" rx="6" ry="10" fill="#8a5a3c"/><ellipse cx="120" cy="76" rx="6" ry="10" fill="#8a5a3c"/>
+ <ellipse cx="80" cy="72" rx="39" ry="47" fill="#9a6644"/>
+ <path d="M42 62 Q42 26 80 22 Q118 26 118 62 Q106 40 80 40 Q54 40 42 62Z" fill="#181818"/>
+ <path d="M41 74 Q41 122 80 128 Q119 122 119 74 Q111 102 80 102 Q49 102 41 74Z" fill="#181818"/>
+ <path d="M60 98 Q80 90 100 98 Q80 104 60 98Z" fill="#181818"/>
+ <path d="M64 106 Q80 122 96 106 Q80 112 64 106Z" fill="#fff"/>
+ <path d="M64 106 Q80 124 96 106" fill="none" stroke="#3a1c14" stroke-width="2.5" stroke-linecap="round"/>
+ <ellipse cx="65" cy="70" rx="7" ry="5.5" fill="#fff"/><ellipse cx="95" cy="70" rx="7" ry="5.5" fill="#fff"/>
+ <circle cx="66" cy="70.5" r="3.2" fill="#181818"/><circle cx="96" cy="70.5" r="3.2" fill="#181818"/>
+ <path d="M55 60 Q65 54 74 59 M86 59 Q95 54 105 60" stroke="#181818" stroke-width="4" fill="none" stroke-linecap="round"/>
+ <path d="M80 72 Q76 86 80 88 Q84 88 84 86" stroke="#6b4129" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+ <path d="M52 78 q5 -3 8 0 M100 78 q5 -3 8 0" stroke="#7a4f33" stroke-width="1.5" fill="none" opacity=".6"/>
+</svg></div>
+<div class="timer" id="timer"><div class="t" id="tt">1:30</div><button class="btn" data-act="tstop">Stop</button></div>
+<footer>Séances de mon coach · version visuelle perso</footer>
 
 <script>
-/* ===== DONNÉES : pour ajouter une séance, ajoute un objet dans SEANCES ===== */
-const SEANCES = [{
-  id:"s3", numero:3, titre:"Coordination & pliométrie", objectif:"Explosivité, réflexes et rotation pour le paddle",
-  blocs:[
-   {nom:"Échauffement", pourquoi:"Monter en température avant les sauts.", exercices:[
-     {id:"velo", icone:"🚴", nom:"Vélo", series:null, reps:"12 min", repos:null, charge:"Allure 10 km/h",
-      pourquoi:"Active le système cardio-respiratoire et prépare les articulations avant les sauts.",
-      consignes:["Allure régulière, environ 10 km/h","Termine l'échauffement prêt à sauter"]}
-   ]},
-   {nom:"Coordination & pliométrie", pourquoi:"Développer réflexes, vitesse d'exécution et vitesse de frappe.", exercices:[
-     {id:"sauts-longueur", icone:"🦘", nom:"Sauts en longueur", series:"3", reps:"Sauts de 1 m 10", repos:null, charge:"Poids du corps",
-      pourquoi:"Travaille l'explosivité des jambes et la coordination, utiles pour les départs et les déplacements sur le court.",
-      consignes:["Saut de 1 m 10, aller puis retour","Reçois-toi stable, genoux fléchis","Enchaîne avec 1 min de gainage"]},
-     {id:"gainage", icone:"🧱", nom:"Gainage", series:"3", reps:"1 min", repos:null, charge:"Poids du corps",
-      pourquoi:"Stabilise le tronc, qui transmet la force entre le bas du corps et le bras de frappe.",
-      consignes:["Après chaque série de sauts en longueur","Corps aligné, ventre serré, respiration continue"], aconfirmer:"Gainage après chaque série de sauts (3×), d'après la note du coach."},
-     {id:"sauts-verticaux", icone:"⬆️", nom:"Sauts verticaux depuis les genoux", series:"3", reps:"8", repos:null, charge:"Ball de 6 kg",
-      pourquoi:"Améliore les réflexes, la rapidité et la vitesse d'exécution.",
-      consignes:["Départ à genoux, ball de 6 kg","Saut vertical explosif pour te retrouver sur les pieds","Reçois-toi souplement"], aconfirmer:"Position exacte de la ball de 6 kg à confirmer avec le coach."},
-     {id:"lancer-rotation", icone:"🎾", nom:"Lancer de balle en rotation externe", series:"3", reps:"12", repos:"1 min 30", charge:"Balle (poids à noter)",
-      pourquoi:"Améliore la rotation et augmente la vitesse de frappe de balle.",
-      consignes:["Rotation externe du buste et de l'épaule","Lance avec explosivité, contrôle le retour","Récupération : 1 min 30 entre les séries"]}
-   ]},
-   {nom:"Vitesse & changement de trajectoire", pourquoi:"Réactivité et appuis rapides pour les déplacements sur le court.", exercices:[
-     {id:"skipping-haies", icone:"🏃", nom:"Skipping sur 2 haies + accélération 5 m", series:null, reps:"Départ gauche puis droite", repos:null, charge:"2 haies",
-      pourquoi:"Travaille la fréquence d'appuis et l'accélération courte, comme sur un départ de balle.",
-      consignes:["Skipping rapide à travers les 2 haies","Accélère sur 5 m après la dernière haie","Fais un départ côté gauche, puis côté droit"], aconfirmer:"Nombre de séries non indiqué."},
-     {id:"haies-box", icone:"📦", nom:"2 haies avec box jumps", series:"3", reps:"3 de chaque", repos:null, charge:"Poids du corps",
-      pourquoi:"Enchaîne vitesse horizontale et puissance verticale, avec un changement d'orientation.",
-      consignes:["Sauts pieds joints, de profil, par-dessus les haies","Termine en sautant sur la boîte, de face","3 répétitions de chaque côté"]}
-   ]},
-   {nom:"Pliométrie dynamique", pourquoi:"Finisseur : tout enchaîner à haute intensité.", exercices:[
-     {id:"finisher", icone:"🔥", nom:"Skipping 2 haies + box jumps + accélération 5 m", series:null, reps:"Enchaînement", repos:null, charge:"2 haies + boîte",
-      pourquoi:"Combine appuis rapides, saut et sprint court pour travailler l'explosivité en conditions dynamiques.",
-      consignes:["Skipping à travers les 2 haies","Box jump","Accélère sur 5 m"], aconfirmer:"Nombre de séries non indiqué."}
-   ]}
-  ]
-}];
+/* =====================================================================
+   DONNÉES — tout ce qui est ici se modifie facilement.
+   CATS     : familles d'exercices
+   LIB      : bibliothèque d'exercices (fiches réutilisables)
+   STYLES   : modèles de séance (structure en blocs + conseils)
+   RULES    : conseils de structure affichés dans le composeur
+   BUILTIN  : séances déjà faites
+   ===================================================================== */
+const CATS={cardio:'Cardio',mobilite:'Mobilité',plio:'Pliométrie',vitesse:'Vitesse',force:'Force',rotation:'Rotation',gainage:'Gainage'};
+const SUGG="Exercice suggéré (pas encore validé par le coach) : confirme séries, répétitions et charge avec lui.";
 
-/* ===== APP ===== */
-const $=s=>document.querySelector(s);
-const S=SEANCES[0];
-const key=k=>`paddle:${S.id}:${k}`;
-const get=(k,d)=>{try{return JSON.parse(localStorage.getItem(key(k)))??d}catch(e){return d}};
-const set=(k,v)=>{try{localStorage.setItem(key(k),JSON.stringify(v))}catch(e){}};
-const all=S.blocs.flatMap(b=>b.exercices);
-let done=get('done',{}), logs=get('logs',{});
+const LIB0=[
+ {id:'velo',cat:'cardio',icone:'🚴',nom:'Vélo',series:null,reps:'12 min',repos:null,charge:'Allure 10 km/h',
+  pourquoi:"Active le système cardio-respiratoire et prépare les articulations avant les sauts.",
+  consignes:['Allure régulière, environ 10 km/h',"Termine l'échauffement prêt à sauter"]},
+ {id:'sauts-longueur',cat:'plio',icone:'🦘',nom:'Sauts en longueur',series:'3',reps:'Sauts de 1 m 10',repos:null,charge:'Poids du corps',
+  pourquoi:"Travaille l'explosivité des jambes et la coordination, utiles pour les départs et les déplacements sur le court.",
+  consignes:['Saut de 1 m 10, aller puis retour','Reçois-toi stable, genoux fléchis','Enchaîne avec 1 min de gainage']},
+ {id:'gainage',cat:'gainage',icone:'🧱',nom:'Gainage',series:'3',reps:'1 min',repos:null,charge:'Poids du corps',
+  pourquoi:'Stabilise le tronc, qui transmet la force entre le bas du corps et le bras de frappe.',
+  consignes:['Corps aligné, ventre serré, respiration continue'],aconfirmer:"Dans la séance 3, le gainage se fait après chaque série de sauts en longueur."},
+ {id:'sauts-verticaux',cat:'plio',icone:'⬆️',nom:'Sauts verticaux depuis les genoux',series:'3',reps:'8',repos:null,charge:'Ball de 6 kg',
+  pourquoi:"Améliore les réflexes, la rapidité et la vitesse d'exécution.",
+  consignes:['Départ à genoux, ball de 6 kg','Saut vertical explosif pour te retrouver sur les pieds','Reçois-toi souplement'],aconfirmer:'Position exacte de la ball de 6 kg à confirmer avec le coach.'},
+ {id:'lancer-rotation',cat:'rotation',icone:'🎾',nom:'Lancer de balle en rotation externe',series:'3',reps:'12',repos:'1 min 30',charge:'Balle (poids à noter)',
+  pourquoi:'Améliore la rotation et augmente la vitesse de frappe de balle.',
+  consignes:["Rotation externe du buste et de l'épaule",'Lance avec explosivité, contrôle le retour','Récupération : 1 min 30 entre les séries']},
+ {id:'skipping-haies',cat:'vitesse',icone:'🏃',nom:'Skipping sur 2 haies + accélération 5 m',series:null,reps:'Départ gauche puis droite',repos:null,charge:'2 haies',
+  pourquoi:"Travaille la fréquence d'appuis et l'accélération courte, comme sur un départ de balle.",
+  consignes:['Skipping rapide à travers les 2 haies',"Accélère sur 5 m après la dernière haie",'Départ côté gauche, puis côté droit'],aconfirmer:'Nombre de séries non indiqué.'},
+ {id:'haies-box',cat:'plio',icone:'📦',nom:'2 haies avec box jumps',series:'3',reps:'3 de chaque',repos:null,charge:'Poids du corps',
+  pourquoi:"Enchaîne vitesse horizontale et puissance verticale, avec un changement d'orientation.",
+  consignes:['Sauts pieds joints, de profil, par-dessus les haies','Termine en sautant sur la boîte, de face','3 répétitions de chaque côté']},
+ {id:'finisher',cat:'plio',icone:'🔥',nom:'Skipping 2 haies + box jumps + accélération 5 m',series:null,reps:'Enchaînement',repos:null,charge:'2 haies + boîte',
+  pourquoi:"Combine appuis rapides, saut et sprint court pour travailler l'explosivité en conditions dynamiques.",
+  consignes:['Skipping à travers les 2 haies','Box jump','Accélère sur 5 m'],aconfirmer:'Nombre de séries non indiqué.'},
+ /* exercices suggérés pour enrichir la bibliothèque */
+ {id:'corde',cat:'cardio',icone:'🪢',nom:'Corde à sauter',series:'3',reps:'1 min',repos:'30 s',charge:'Poids du corps',
+  pourquoi:"Échauffement dynamique : appuis légers, coordination et cardio.",consignes:['Petits sauts sur l’avant-pied','Épaules relâchées, poignets qui tournent'],aconfirmer:SUGG},
+ {id:'rot-thoracique',cat:'mobilite',icone:'🌀',nom:'Rotation thoracique',series:'2',reps:'10 par côté',repos:null,charge:'Poids du corps',
+  pourquoi:"Libère la rotation du haut du dos, essentielle pour frapper sans forcer sur les lombaires.",consignes:['À quatre pattes, une main derrière la tête','Ouvre le coude vers le plafond, suis-le du regard'],aconfirmer:SUGG},
+ {id:'squat',cat:'force',icone:'🏋️',nom:'Squat goblet',series:'3',reps:'10',repos:'1 min 30',charge:'Haltère (à noter)',
+  pourquoi:"Renforce cuisses et fessiers pour les appuis bas et les changements de direction.",consignes:["Haltère contre la poitrine",'Descends hanches en arrière, dos droit','Pousse dans les talons pour remonter'],aconfirmer:SUGG},
+ {id:'fentes-lat',cat:'force',icone:'↔️',nom:'Fentes latérales',series:'3',reps:'8 par côté',repos:'1 min',charge:'Poids du corps ou haltère',
+  pourquoi:"Renforce les déplacements latéraux typiques du paddle.",consignes:['Grand pas sur le côté, hanches en arrière','Jambe tendue, pied à plat','Repousse fort pour revenir'],aconfirmer:SUGG},
+ {id:'pompes',cat:'force',icone:'💪',nom:'Pompes',series:'3',reps:'10',repos:'1 min',charge:'Poids du corps',
+  pourquoi:"Renforce pectoraux, épaules et triceps pour la stabilité du bras de frappe.",consignes:['Corps aligné de la tête aux talons','Coudes à 45° du corps','Descends poitrine près du sol'],aconfirmer:SUGG},
+ {id:'tirage',cat:'force',icone:'🎗️',nom:'Tirage élastique',series:'3',reps:'12',repos:'1 min',charge:'Élastique (à noter)',
+  pourquoi:"Renforce le haut du dos et protège l'épaule, très sollicitée en frappe.",consignes:['Tire vers la poitrine, coudes le long du corps','Serre les omoplates 1 seconde'],aconfirmer:SUGG},
+ {id:'souleve',cat:'force',icone:'🏗️',nom:'Soulevé de terre roumain',series:'3',reps:'10',repos:'1 min 30',charge:'Haltères (à noter)',
+  pourquoi:"Renforce l'arrière des cuisses et le bas du dos pour la puissance et la posture.",consignes:['Jambes quasi tendues, dos plat','Pousse les hanches en arrière, remonte en les avançant'],aconfirmer:SUGG},
+ {id:'pallof',cat:'rotation',icone:'🎯',nom:'Pallof press',series:'3',reps:'10 par côté',repos:'45 s',charge:'Élastique (à noter)',
+  pourquoi:"Apprend au tronc à résister à la rotation, donc à transmettre la force à la frappe.",consignes:['Élastique à hauteur de poitrine, sur le côté','Tends les bras devant toi sans te laisser tourner'],aconfirmer:SUGG},
+ {id:'gainage-lat',cat:'gainage',icone:'📐',nom:'Gainage latéral',series:'3',reps:'30 s par côté',repos:'30 s',charge:'Poids du corps',
+  pourquoi:"Renforce les obliques et stabilise le tronc lors des rotations.",consignes:['Appui sur l’avant-bras, corps en ligne','Hanches hautes, ne pas pencher en avant'],aconfirmer:SUGG},
+ {id:'echelle',cat:'vitesse',icone:'🪜',nom:'Échelle de rythme',series:'4',reps:'1 passage',repos:'45 s',charge:'Poids du corps',
+  pourquoi:"Améliore la fréquence d'appuis et la coordination des pieds.",consignes:['Appuis rapides, un pied par case','Regard devant, pas sur les pieds'],aconfirmer:SUGG},
+ {id:'shuffle',cat:'vitesse',icone:'⚡',nom:'Déplacements latéraux (shuffle)',series:'4',reps:'5 m aller-retour',repos:'45 s',charge:'Poids du corps',
+  pourquoi:"Reproduit les déplacements latéraux sur le court, avec changements de direction.",consignes:['Reste bas, genoux fléchis','Ne croise pas les pieds','Touche la ligne puis repars'],aconfirmer:SUGG}
+];
 
-$('#tag').textContent=`SÉANCE ${S.numero}`;
-$('#titre').textContent=S.titre;
-$('#stats').innerHTML=[[S.blocs.length,'blocs'],[all.length,'exercices'],['~45','minutes']].map(([a,b])=>`<div class="stat"><b>${a}</b>${b}</div>`).join('');
-document.title=`Séance ${S.numero} · ${S.titre}`;
+const STYLES=[
+ {id:'plio',icone:'🦘',nom:'Coordination & pliométrie',desc:'Sauts, réflexes, vitesse de jambes.',blocs:[
+   {nom:'Échauffement',cats:['cardio','mobilite'],tip:'Monte en température avant les sauts.'},
+   {nom:'Coordination & pliométrie',cats:['plio','gainage','rotation'],tip:'Pliométrie quand tu es encore frais, avec du gainage entre les séries.'},
+   {nom:'Vitesse & changement de trajectoire',cats:['vitesse','plio'],tip:'Appuis rapides et accélérations courtes.'},
+   {nom:'Pliométrie dynamique',cats:['plio','vitesse'],tip:'Finisseur : tout enchaîner.'}]},
+ {id:'force',icone:'🏋️',nom:'Force & puissance',desc:'Force de base, puis un exercice explosif en contraste.',blocs:[
+   {nom:'Échauffement',cats:['cardio','mobilite'],tip:'Cardio léger + mobilité.'},
+   {nom:'Force principale',cats:['force'],tip:'Les exercices lourds en premier, repos long.'},
+   {nom:'Contraste explosif',cats:['plio','vitesse'],tip:'Juste après un exercice lourd : un mouvement explosif proche.'},
+   {nom:'Tronc',cats:['gainage','rotation'],tip:'Gainage et anti-rotation pour finir.'}]},
+ {id:'rotation',icone:'🌀',nom:'Rotation & frappe',desc:'Tronc, rotation, vitesse de frappe.',blocs:[
+   {nom:'Échauffement',cats:['cardio','mobilite'],tip:'Insiste sur la mobilité du dos et des épaules.'},
+   {nom:'Puissance de rotation',cats:['rotation','plio'],tip:'Lancers et mouvements explosifs.'},
+   {nom:'Stabilité du tronc',cats:['gainage','rotation','force'],tip:'Contrôle du tronc.'}]},
+ {id:'mixte',icone:'🎾',nom:'Mixte paddle',desc:'Un peu de tout : force, pliométrie, vitesse, tronc.',blocs:[
+   {nom:'Échauffement',cats:['cardio','mobilite'],tip:''},
+   {nom:'Force',cats:['force'],tip:'1 ou 2 exercices bien choisis.'},
+   {nom:'Pliométrie & vitesse',cats:['plio','vitesse'],tip:'Reste court et explosif.'},
+   {nom:'Tronc',cats:['gainage','rotation'],tip:''}]},
+ {id:'libre',icone:'✏️',nom:'Séance libre',desc:'Tu pars de zéro et tu ajoutes tes blocs.',blocs:[{nom:'Bloc 1',cats:[],tip:''}]}
+];
 
+/* Conseils de structure : à adapter avec tes propres règles */
+const flat=d=>d.blocs.flatMap(b=>b.items.map(i=>({...exo(i.id),cat:exo(i.id).cat})));
+const firstIdx=(d,cats)=>{let n=0;for(const b of d.blocs)for(const i of b.items){if(cats.includes(exo(i.id).cat))return n;n++}return -1};
+const RULES=[
+ {w:1,test:d=>{const p=firstIdx(d,['plio','force','vitesse']),w=firstIdx(d,['cardio','mobilite']);return p>=0&&(w<0||w>p)},msg:"Pas d'échauffement avant le travail intense : place du cardio ou de la mobilité en premier."},
+ {w:0,test:d=>flat(d).some(e=>e.cat==='plio')&&flat(d).some(e=>e.cat==='force'),msg:"Force + pliométrie : un exercice explosif juste après un exercice lourd (contraste) marche bien, ou fais la pliométrie en premier, quand tu es frais."},
+ {w:1,test:d=>flat(d).length>0&&!flat(d).some(e=>e.cat==='gainage'||e.cat==='rotation'),msg:"Aucun exercice de tronc (gainage ou rotation) : il transmet la force à la frappe."},
+ {w:1,test:d=>flat(d).length>10,msg:"Séance longue (plus de 10 exercices) : pense à la qualité sur les exercices explosifs."}
+];
+
+const BUILTIN=[{id:'s3',nom:'Séance 3 · Coordination & pliométrie',style:'plio',builtin:true,duree:45,blocs:[
+ {nom:'Échauffement',pourquoi:'Monter en température avant les sauts.',items:['velo']},
+ {nom:'Coordination & pliométrie',pourquoi:"Développer réflexes, vitesse d'exécution et vitesse de frappe.",items:['sauts-longueur','gainage','sauts-verticaux','lancer-rotation']},
+ {nom:'Vitesse & changement de trajectoire',pourquoi:'Réactivité et appuis rapides pour les déplacements.',items:['skipping-haies','haies-box']},
+ {nom:'Pliométrie dynamique',pourquoi:'Finisseur : tout enchaîner à haute intensité.',items:['finisher']}
+].map(b=>({...b,items:b.items.map(id=>({id,o:{}}))}))}];
 
 /* ===== SCHÉMAS (bonshommes SVG) ===== */
 const P={
@@ -170,6 +275,7 @@ const P={
  flight:{h:[62,26],s:[56,40],p:[42,64],a:[[[68,36],[82,26]],[[66,44],[80,36]]],l:[[[60,76],[66,98]],[[48,84],[56,104]]]},
  land:{h:[56,44],s:[50,56],p:[36,84],a:[[[64,62],[78,62]],[[62,64],[76,66]]],l:[[[60,98],[52,120]],[[58,96],[46,120]]]},
  plank:{h:[12,86],s:[24,92],p:[64,98],a:[[[28,112],[46,112]],[[26,112],[44,112]]],l:[[[78,105],[98,112]],[[78,104],[96,112]]]},
+ pushup:{h:[12,78],s:[26,86],p:[64,96],a:[[[27,100],[28,112]],[[29,100],[30,112]]],l:[[[80,104],[98,112]],[[80,103],[96,112]]]},
  kneel:{h:[46,24],s:[46,38],p:[46,80],a:[[[44,60],[56,54]],[[40,58],[54,52]]],l:[[[64,110],[34,113]],[[62,110],[32,112]]]},
  airv:{h:[50,16],s:[50,30],p:[50,58],a:[[[46,46],[56,42]],[[44,44],[54,40]]],l:[[[58,74],[44,88]],[[62,72],[48,84]]]},
  cock:{h:[40,24],s:[42,38],p:[42,70],a:[[[66,40],[66,18]],[[34,54],[30,68]]],l:[[[50,96],[58,120]],[[38,95],[30,120]]]},
@@ -178,38 +284,27 @@ const P={
  skipB:{h:[52,22],s:[52,36],p:[50,66],a:[[[40,52],[32,62]],[[64,52],[72,44]]],l:[[[70,76],[66,96]],[[48,92],[44,118]]]},
  sprint:{h:[66,28],s:[58,42],p:[44,68],a:[[[70,54],[80,44]],[[46,52],[34,60]]],l:[[[62,82],[56,102]],[[38,92],[22,106]]]},
  hj:{h:[50,14],s:[50,28],p:[50,54],a:[[[58,40],[62,52]],[[42,40],[38,52]]],l:[[[54,68],[54,82]],[[46,68],[46,82]]]},
- bike:{h:[66,24],s:[60,38],p:[44,62],a:[[[72,52],[80,64]],[[70,50],[78,62]]],l:[[[62,76],[56,94]],[[56,80],[46,98]]]}
+ bike:{h:[66,24],s:[60,38],p:[44,62],a:[[[72,52],[80,64]],[[70,50],[78,62]]],l:[[[62,76],[56,94]],[[56,80],[46,98]]]},
+ gob:{h:[50,22],s:[50,36],p:[50,70],a:[[[52,52],[56,46]],[[48,52],[54,46]]],l:[[[53,95],[55,120]],[[47,95],[45,120]]]},
+ gobd:{h:[54,40],s:[50,52],p:[36,84],a:[[[56,64],[58,54]],[[52,64],[56,54]]],l:[[[60,98],[52,120]],[[58,96],[46,120]]]}
 };
 const hurdle=(x=50)=>`<g class="prop"><line x1="${x-24}" y1="120" x2="${x-24}" y2="94"/><line x1="${x+24}" y1="120" x2="${x+24}" y2="94"/><line x1="${x-28}" y1="94" x2="${x+28}" y2="94"/></g>`;
 const box=(x1,x2,y=84)=>`<rect class="box" x="${x1}" y="${y}" width="${x2-x1}" height="${120-y}" rx="3"/>`;
 const ball=(x,y,r=10)=>`<circle class="ball" cx="${x}" cy="${y}" r="${r}"/>`;
-const dash=(d)=>`<path class="arr" stroke-dasharray="4 5" d="${d}"/>`;
+const dash=d=>`<path class="arr" stroke-dasharray="4 5" d="${d}"/>`;
+const SPR=`<path class="arr" d="M6 130 L96 130 M88 124 L96 130 L88 136"/>`;
 const SCHEMAS={
  velo:[{p:'bike',label:'12 min · 10 km/h',props:`<circle class="prop" cx="22" cy="100" r="18"/><circle class="prop" cx="82" cy="100" r="18"/><path class="prop" d="M22 100 L44 70 L82 100 M44 70 L64 70 L82 100 M64 70 L72 54"/>`}],
- 'sauts-longueur':[
-  {p:'crouch',label:'Départ'},
-  {p:'flight',dy:-14,label:'Saut 1,10 m',props:dash('M20 36 Q60 -14 100 36')},
-  {p:'land',label:'Réception · retour'}],
+ 'sauts-longueur':[{p:'crouch',label:'Départ'},{p:'flight',dy:-14,label:'Saut 1,10 m',props:dash('M20 36 Q60 -14 100 36')},{p:'land',label:'Réception · retour'}],
  gainage:[{p:'plank',label:'1 min · corps aligné',props:`<line class="arr" x1="22" y1="76" x2="98" y2="94" stroke-dasharray="3 5"/>`}],
- 'sauts-verticaux':[
-  {p:'kneel',label:'À genoux',props:ball(62,53)},
-  {p:'airv',dy:-6,label:'Saut explosif',props:ball(60,36)+`<path class="arr" d="M20 90 L20 40 M14 48 L20 40 L26 48"/>`},
-  {p:'land',label:'Réception',props:ball(86,64)}],
- 'lancer-rotation':[
-  {p:'cock',label:'Armé · rotation externe',props:ball(66,8,8)},
-  {p:'release',label:'Lancer explosif',props:ball(98,26,8)+dash('M60 70 Q80 50 92 38')}],
- 'skipping-haies':[
-  {p:'skipA',label:'Haie 1',props:hurdle(50)},
-  {p:'skipB',label:'Haie 2',props:hurdle(50)},
-  {p:'sprint',label:'Accélère 5 m',props:`<path class="arr" d="M6 130 L96 130 M88 124 L96 130 L88 136"/>`}],
- 'haies-box':[
-  {p:'hj',dy:-10,label:'Haie 1 · de profil',props:hurdle(50)},
-  {p:'hj',dy:-10,label:'Haie 2 · de profil',props:hurdle(50)},
-  {p:'stand',dy:-36,label:'Sur la boîte · de face',props:box(18,82)}],
- finisher:[
-  {p:'skipA',label:'Skipping haies',props:hurdle(50)},
-  {p:'hj',dx:-14,dy:-30,label:'Box jump',props:box(52,100)+hurdle(24)},
-  {p:'sprint',label:'Accélère 5 m',props:`<path class="arr" d="M6 130 L96 130 M88 124 L96 130 L88 136"/>`}]
+ 'sauts-verticaux':[{p:'kneel',label:'À genoux',props:ball(62,53)},{p:'airv',dy:-6,label:'Saut explosif',props:ball(60,36)+`<path class="arr" d="M20 90 L20 40 M14 48 L20 40 L26 48"/>`},{p:'land',label:'Réception',props:ball(86,64)}],
+ 'lancer-rotation':[{p:'cock',label:'Armé · rotation externe',props:ball(66,8,8)},{p:'release',label:'Lancer explosif',props:ball(98,26,8)+dash('M60 70 Q80 50 92 38')}],
+ 'skipping-haies':[{p:'skipA',label:'Haie 1',props:hurdle(50)},{p:'skipB',label:'Haie 2',props:hurdle(50)},{p:'sprint',label:'Accélère 5 m',props:SPR}],
+ 'haies-box':[{p:'hj',dy:-10,label:'Haie 1 · de profil',props:hurdle(50)},{p:'hj',dy:-10,label:'Haie 2 · de profil',props:hurdle(50)},{p:'stand',dy:-36,label:'Sur la boîte · de face',props:box(18,82)}],
+ finisher:[{p:'skipA',label:'Skipping haies',props:hurdle(50)},{p:'hj',dx:-14,dy:-30,label:'Box jump',props:box(52,100)+hurdle(24)},{p:'sprint',label:'Accélère 5 m',props:SPR}],
+ squat:[{p:'gob',label:'Départ',props:ball(58,46,7)},{p:'gobd',label:'Descends',props:ball(60,54,7)}],
+ pompes:[{p:'pushup',label:'Corps aligné'}],
+ 'gainage-lat':[{p:'plank',label:'Sur le côté · en ligne'}]
 };
 function fig(k,dx=0,dy=0){
   const q=P[k],t=a=>`${a[0]+dx} ${a[1]+dy}`,line=(...pts)=>'M'+pts.map(t).join(' L');
@@ -217,71 +312,209 @@ function fig(k,dx=0,dy=0){
     `<path class="fig" d="${line(q.s,q.p)} ${line(q.s,...q.a[0])} ${line(q.p,...q.l[0])}"/>`+
     `<circle class="head" cx="${q.h[0]+dx}" cy="${q.h[1]+dy}" r="9"/>`;
 }
-function schema(id){
-  const fr=SCHEMAS[id];if(!fr)return '';
-  const n=fr.length;
+function schema(e){
+  const fr=SCHEMAS[e.id];if(!fr)return `<div class="schema big">${e.icone}</div>`;
+  const n=fr.length,one=n===1,crop=e.id==='gainage'||e.id==='pompes'||e.id==='gainage-lat';
   const g=fr.map((f,i)=>`<g transform="translate(${i*120} 0)"><line class="gnd" x1="2" y1="120" x2="98" y2="120"/>${f.props||''}${fig(f.p,f.dx||0,f.dy||0)}<text x="50" y="${f.label&&/5 m/.test(f.label)?150:138}">${f.label||''}</text>${i<n-1?`<path class="arr" d="M104 52 L112 60 L104 68"/>`:''}</g>`).join('');
-  return `<div class="schema"><svg viewBox="0 ${id==='gainage'?56:-24} ${n*120-10} ${id==='gainage'?104:182}" style="max-width:${n===1?300:n*170}px" role="img" aria-label="Schéma de l'exercice">${g}</svg></div>`;
+  return `<div class="schema"><svg viewBox="0 ${crop?56:-24} ${n*120-10} ${crop?104:182}" style="max-width:${one?300:n*170}px" role="img" aria-label="Schéma de l'exercice">${g}</svg></div>`;
 }
 
-function dose(e){return [e.series&&[e.series,'séries'],e.reps&&[e.reps,'reps / durée'],e.repos&&[e.repos,'repos'],e.charge&&[e.charge,'charge']].filter(Boolean)}
-function sumline(e){return [e.series&&`${e.series} ×`,e.reps,e.charge&&`· ${e.charge}`].filter(Boolean).join(' ')}
-
+/* ===== OUTILS ===== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k,d){try{return JSON.parse(localStorage.getItem('paddle:'+k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem('paddle:'+k,JSON.stringify(v))}catch(e){}}};
+let custom=store.get('custom',[]), customEx=store.get('customEx',[]);
+let doneAll=store.get('done',{}), logs=store.get('logs',{});
+const LIB=()=>LIB0.concat(customEx);
+const exo=id=>LIB().find(e=>e.id===id)||{id,nom:'(exercice supprimé)',cat:'force',icone:'❔',pourquoi:'',consignes:[]};
+const seances=()=>BUILTIN.concat(custom);
+const resolve=s=>s.blocs.map(b=>({nom:b.nom,pourquoi:b.pourquoi||'',ex:b.items.map(it=>({...exo(it.id),...(it.o||{})}))}));
+const styleOf=id=>STYLES.find(s=>s.id===id)||STYLES[STYLES.length-1];
+const dose=e=>[e.series&&[e.series,'séries'],e.reps&&[e.reps,'reps / durée'],e.repos&&[e.repos,'repos'],e.charge&&[e.charge,'charge']].filter(Boolean);
+const sumline=e=>[e.series&&`${e.series} ×`,e.reps,e.charge&&`· ${e.charge}`].filter(Boolean).join(' ');
 function pill(e){
-  if(!e.series)return e.reps.match(/^\d+ min$/)?e.reps.replace(' min',"'"):'→';
-  const r=e.reps.match(/^(\d+) min$/)?e.reps.replace(' min',"'"):(e.reps.match(/^\d+(?= de|$)/)||[''])[0];
+  if(!e.series)return /^\d+ min$/.test(e.reps||'')?e.reps.replace(' min',"'"):'→';
+  const r=/^(\d+) min$/.test(e.reps||'')?e.reps.replace(' min',"'"):((e.reps||'').match(/^\d+(?= de|$| par)/)||[''])[0];
   return e.series+'×'+r;
 }
+
+/* ===== ÉTAT & NAVIGATION ===== */
+let view='home', sub='seance', curId=null, draft=null, pick=null, libCat='tous', newEx=false;
+function go(v,o={}){view=v;if(o.curId)curId=o.curId;render();scrollTo(0,0)}
+
 function render(){
-  let n=0;
-  $('#vue-seance').innerHTML=S.blocs.map((b,i)=>`
-    <div class="block"><h2><span>${i+1}</span>${b.nom}</h2><p class="why">${b.pourquoi}</p>
-    ${b.exercices.map(e=>`<div class="row ${done[e.id]?'done':''}">
-      <input class="chk" type="checkbox" data-id="${e.id}" ${done[e.id]?'checked':''} aria-label="Fait">
+  const cur=view==='seance'?seances().find(s=>s.id===curId):null;
+  const T={home:'Mes séances',compose:'Composer',lib:'Exercices'};
+  $('#tag').textContent=cur?'SÉANCE':'MES SÉANCES PADDLE';
+  $('#titre').textContent=cur?cur.nom:T[view];
+  let st;
+  if(cur){const r=resolve(cur),n=r.reduce((a,b)=>a+b.ex.length,0);st=[[r.length,'blocs'],[n,'exercices'],['~'+(cur.duree||n*5),'minutes']]}
+  else st=[[seances().length,'séances'],[LIB().length,'exercices'],[STYLES.length-1,'styles']];
+  $('#stats').innerHTML=st.map(([a,b])=>`<div class="stat"><b>${a}</b>${b}</div>`).join('');
+  document.title=cur?cur.nom:'Mes séances paddle';
+  $('#nav').innerHTML=cur
+    ?`<button class="icon" data-act="home" title="Retour">←</button><button class="tab ${sub==='seance'?'on':''}" data-act="sub" data-v="seance">Séance</button><button class="tab ${sub==='cartes'?'on':''}" data-act="sub" data-v="cartes">Cartes</button><button class="icon" data-act="reset" title="Tout décocher">↺</button><button class="icon" onclick="window.print()" title="Imprimer">🖨</button>`
+    :[['home','Séances'],['compose','Composer'],['lib','Exercices']].map(([v,t])=>`<button class="tab ${view===v?'on':''}" data-act="go" data-v="${v}">${t}</button>`).join('');
+  $('#progw').style.display=cur?'block':'none';
+  $('#main').innerHTML=cur?viewSeance(cur):view==='home'?viewHome():view==='lib'?viewLib():viewCompose();
+  if(cur)progress(cur);
+}
+
+/* ===== VUE SÉANCE ===== */
+function cardHTML(e,i,total,key){
+  return `<article class="card" id="c-${key}">
+    <div class="ch"><div class="ico">${e.icone}</div><div><small>${total?`EXERCICE ${i+1}/${total} · `:''}${CATS[e.cat]||''}</small><h3>${esc(e.nom)}</h3></div></div>
+    <div class="cb">${schema(e)}
+      <div class="dose">${dose(e).map(([a,b])=>`<div><b>${esc(a)}</b><span>${b}</span></div>`).join('')}</div>
+      <div class="sec">Pourquoi c'est bon pour le paddle</div><p>${esc(e.pourquoi)}</p>
+      <div class="sec">Exécution</div><ul>${(e.consignes||[]).map(c=>`<li>${esc(c)}</li>`).join('')}</ul>
+      ${e.aconfirmer?`<div class="confirm">À confirmer avec le coach : ${esc(e.aconfirmer)}</div>`:''}
+      <div class="log"><input data-log="${e.id}" placeholder="Charge / note de la dernière fois" value="${esc(logs[e.id]||'')}">
+      ${e.repos?`<button class="btn" data-act="rest" data-v="${esc(e.repos)}">⏱ Repos</button>`:''}</div>
+    </div></article>`;
+}
+function viewSeance(s){
+  const R=resolve(s),done=doneAll[s.id]||{};
+  const total=R.reduce((a,b)=>a+b.ex.length,0);
+  if(sub==='cartes'){let n=0;return `<section class="cards">${R.flatMap((b,bi)=>b.ex.map((e,ei)=>cardHTML(e,n++,total,`${bi}-${ei}`))).join('')}</section>`}
+  return R.map((b,bi)=>`<div class="block"><h2><span>${bi+1}</span>${esc(b.nom)}</h2>${b.pourquoi?`<p class="why">${esc(b.pourquoi)}</p>`:''}
+    ${b.ex.map((e,ei)=>{const k=bi+'-'+ei;return `<div class="row ${done[k]?'done':''}">
+      <input class="chk" type="checkbox" data-k="${k}" ${done[k]?'checked':''} aria-label="Fait">
       <div class="ico">${e.icone}</div>
-      <div class="rt" data-go="${e.id}"><div class="rn">${e.nom}</div><div class="rd">${sumline(e)}${e.repos?` · repos ${e.repos}`:''}</div></div>
-      <div class="pill">${pill(e)}</div>
-    </div>`).join('')}</div>`).join('');
-  $('#vue-cartes').innerHTML=all.map((e,i)=>`
-    <article class="card" id="c-${e.id}">
-      <div class="ch"><div class="ico">${e.icone}</div><div><small>EXERCICE ${i+1}/${all.length}</small><h3>${e.nom}</h3></div></div>
-      <div class="cb">
-        ${schema(e.id)}
-        <div class="dose">${dose(e).map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join('')}</div>
-        <div class="sec">Pourquoi c'est bon pour le paddle</div><p>${e.pourquoi}</p>
-        <div class="sec">Exécution</div><ul>${e.consignes.map(c=>`<li>${c}</li>`).join('')}</ul>
-        ${e.aconfirmer?`<div class="confirm">À confirmer avec le coach : ${e.aconfirmer}</div>`:''}
-        <div class="log"><input data-log="${e.id}" placeholder="Charge / note de la dernière fois" value="${(logs[e.id]||'').replace(/"/g,'&quot;')}">
-        ${e.repos?`<button class="btn" data-rest="${e.repos}">⏱ Repos</button>`:''}</div>
-      </div>
-    </article>`).join('');
-  progress();
+      <div class="rt" data-act="open" data-k="${k}"><div class="rn">${esc(e.nom)}</div><div class="rd">${esc(sumline(e))}${e.repos?` · repos ${esc(e.repos)}`:''}</div></div>
+      <div class="pill">${esc(pill(e))}</div></div>`}).join('')}</div>`).join('')||'<p class="hint">Cette séance est vide.</p>';
 }
-function progress(){const d=all.filter(e=>done[e.id]).length;$('#prog').style.width=(100*d/all.length)+'%'}
-function show(v){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.v===v));
-  $('#vue-seance').classList.toggle('hidden',v!=='seance');
-  $('#vue-cartes').classList.toggle('hidden',v!=='cartes');
-  scrollTo(0,0);
+function progress(s){
+  const n=s.blocs.reduce((a,b)=>a+b.items.length,0),d=Object.values(doneAll[s.id]||{}).filter(Boolean).length;
+  $('#prog').style.width=(n?100*d/n:0)+'%';
 }
+
+/* ===== VUE ACCUEIL ===== */
+function viewHome(){
+  const card=s=>{const n=s.blocs.reduce((a,b)=>a+b.items.length,0),st=styleOf(s.style);
+    return `<div class="sc"><h3>${esc(s.nom)}</h3>
+    <div class="meta"><span class="chip">${st.icone} ${esc(st.nom)}</span><span class="hint">${s.blocs.length} blocs · ${n} exercices</span>${s.builtin?'<span class="chip">Du coach</span>':''}</div>
+    <div class="acts"><button class="btn sm" data-act="openS" data-id="${s.id}">Ouvrir</button>
+    <button class="btn ghost sm" data-act="dup" data-id="${s.id}">Dupliquer</button>
+    ${s.builtin?'':`<button class="btn ghost sm" data-act="edit" data-id="${s.id}">Modifier</button><button class="btn danger sm" data-act="del" data-id="${s.id}">Supprimer</button>`}</div></div>`};
+  return `${seances().map(card).join('')}
+  <h2 class="sec2">Sauvegarde</h2>
+  <p class="hint">Tes séances et exercices créés sont enregistrés dans ce navigateur. Exporte-les pour les garder ou les passer sur un autre appareil.</p>
+  <div class="acts" style="margin-top:10px"><button class="btn ghost sm" data-act="export">Exporter</button>
+  <label class="btn ghost sm" style="display:inline-block">Importer<input type="file" accept="application/json" id="imp" hidden></label></div>`;
+}
+
+/* ===== VUE BIBLIOTHÈQUE ===== */
+function viewLib(){
+  const l=LIB().filter(e=>libCat==='tous'||e.cat===libCat);
+  return `<div class="chips"><button class="chip ${libCat==='tous'?'on':''}" data-act="libcat" data-v="tous">Tous</button>${Object.entries(CATS).map(([k,v])=>`<button class="chip ${libCat===k?'on':''}" data-act="libcat" data-v="${k}">${v}</button>`).join('')}</div>
+  <button class="btn ghost sm" data-act="newex">${newEx?'Fermer':'+ Nouvel exercice'}</button>
+  ${newEx?`<div class="eb"><div class="form">
+    <label>Nom<input class="field" id="n-nom"></label>
+    <label>Famille<select class="field" id="n-cat">${Object.entries(CATS).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select></label>
+    <label>Séries<input class="field" id="n-series" placeholder="3"></label>
+    <label>Répétitions ou durée<input class="field" id="n-reps" placeholder="10 ou 1 min"></label>
+    <label>Repos<input class="field" id="n-repos" placeholder="1 min"></label>
+    <label>Charge<input class="field" id="n-charge" placeholder="Poids du corps"></label>
+    <label>Pourquoi c'est bon pour le paddle<input class="field" id="n-why"></label>
+    <label>Consignes (une par ligne)<textarea class="field" id="n-cons" rows="3"></textarea></label>
+    <button class="btn" data-act="saveex">Enregistrer l'exercice</button></div></div>`:''}
+  <section class="cards">${l.map(e=>cardHTML(e,0,0,'l-'+e.id)).join('')}</section>`;
+}
+
+/* ===== VUE COMPOSEUR ===== */
+function viewCompose(){
+  if(!draft)return `<p class="hint" style="margin-top:16px">Choisis un style : il propose une structure de séance. Tu pourras ensuite ajouter, retirer et réordonner les exercices.</p>
+   <div class="styles">${STYLES.map(s=>`<button class="style" data-act="newdraft" data-id="${s.id}"><div class="ico">${s.icone}</div><div><b>${esc(s.nom)}</b><span class="d">${esc(s.desc)}</span></div></button>`).join('')}</div>`;
+  const st=styleOf(draft.style),all=flat(draft);
+  const counts=Object.entries(CATS).map(([k,v])=>[v,all.filter(e=>e.cat===k).length]).filter(x=>x[1]);
+  const msgs=RULES.filter(r=>{try{return r.test(draft)}catch(e){return false}});
+  return `<div class="eb"><label class="hint">Nom de la séance</label>
+    <input class="field" id="d-nom" value="${esc(draft.nom)}" placeholder="Ex. Force + pliométrie jambes">
+    <div class="chips"><span class="chip">${st.icone} ${esc(st.nom)}</span>${counts.map(([v,n])=>`<span class="chip">${v} · ${n}</span>`).join('')||'<span class="hint">Aucun exercice pour l\'instant</span>'}</div>
+    ${msgs.map(r=>`<div class="${r.w?'warn':'tip'}">${r.w?'⚠️':'💡'} ${esc(r.msg)}</div>`).join('')}</div>
+  ${draft.blocs.map((b,bi)=>{
+    const sb=st.blocs[bi];
+    return `<div class="eb"><div class="top"><input class="field" data-bn="${bi}" value="${esc(b.nom)}"><button class="mini" data-act="bup" data-bi="${bi}" title="Monter">▲</button><button class="mini" data-act="bdown" data-bi="${bi}" title="Descendre">▼</button><button class="mini" data-act="bdel" data-bi="${bi}" title="Supprimer le bloc">✕</button></div>
+    ${sb&&sb.tip?`<div class="tip">💡 ${esc(sb.tip)}</div>`:''}
+    ${b.items.map((it,ei)=>{const e={...exo(it.id),...(it.o||{})};return `<div class="it"><span class="ico" style="width:34px;height:34px;font-size:1.2rem">${e.icone}</span><span class="nm">${esc(e.nom)}</span>
+      <input data-o="${bi}.${ei}.series" value="${esc(e.series||'')}" placeholder="séries" aria-label="Séries"><input class="w" data-o="${bi}.${ei}.reps" value="${esc(e.reps||'')}" placeholder="reps" aria-label="Répétitions"><input class="w" data-o="${bi}.${ei}.repos" value="${esc(e.repos||'')}" placeholder="repos" aria-label="Repos">
+      <button class="mini" data-act="iup" data-bi="${bi}" data-ei="${ei}">▲</button><button class="mini" data-act="idown" data-bi="${bi}" data-ei="${ei}">▼</button><button class="mini" data-act="idel" data-bi="${bi}" data-ei="${ei}">✕</button></div>`}).join('')}
+    <div style="margin-top:10px"><button class="btn ghost sm" data-act="pick" data-bi="${bi}">${pick&&pick.bi===bi?'Fermer':'+ Ajouter un exercice'}</button></div>
+    ${pick&&pick.bi===bi?pickerHTML(sb,bi):''}</div>`}).join('')}
+  <div class="acts"><button class="btn ghost sm" data-act="badd">+ Ajouter un bloc</button></div>
+  <div class="acts" style="margin:22px 0 40px"><button class="btn" data-act="save">Enregistrer la séance</button><button class="btn ghost" data-act="cancel">Annuler</button></div>`;
+}
+function pickerHTML(sb,bi){
+  const sug=(sb&&sb.cats)||[];
+  const l=LIB().filter(e=>pick.cat==='tous'?true:pick.cat==='sug'?sug.includes(e.cat):e.cat===pick.cat);
+  return `<div class="picker"><div class="chips" style="margin-top:0">${sug.length?`<button class="chip ${pick.cat==='sug'?'on':''}" data-act="pcat" data-v="sug">Conseillés</button>`:''}<button class="chip ${pick.cat==='tous'?'on':''}" data-act="pcat" data-v="tous">Tous</button>${Object.entries(CATS).map(([k,v])=>`<button class="chip ${pick.cat===k?'on':''}" data-act="pcat" data-v="${k}">${v}</button>`).join('')}</div>
+  ${l.map(e=>`<div class="pk"><span class="ico" style="width:34px;height:34px;font-size:1.2rem">${e.icone}</span><div class="nm"><b>${esc(e.nom)}</b><div class="hint">${CATS[e.cat]} · ${esc(sumline(e))}</div></div><button class="btn sm" data-act="add" data-bi="${bi}" data-id="${e.id}">+</button></div>`).join('')||'<p class="hint">Aucun exercice dans cette famille.</p>'}</div>`;
+}
+
+/* ===== ACTIONS ===== */
+const mv=(a,i,j)=>{if(j<0||j>=a.length)return;[a[i],a[j]]=[a[j],a[i]]};
+const clone=o=>JSON.parse(JSON.stringify(o));
 document.addEventListener('click',ev=>{
-  const t=ev.target;
-  if(t.classList.contains('tab'))show(t.dataset.v);
-  if(t.id==='reset'&&confirm('Tout décocher ?')){done={};set('done',done);render()}
-  const go=t.closest('[data-go]');
-  if(go){show('cartes');const c=$('#c-'+go.dataset.go);c.scrollIntoView();c.classList.add('flash');setTimeout(()=>c.classList.remove('flash'),1400)}
-  if(t.dataset.rest)startTimer(t.dataset.rest);
-  if(t.id==='tstop')stopTimer();
+  const t=ev.target.closest('[data-act]');if(!t)return;
+  const a=t.dataset.act,d=t.dataset,bi=+d.bi,ei=+d.ei;
+  switch(a){
+   case 'go':return go(d.v);
+   case 'home':return go('home');
+   case 'sub':sub=d.v;return go('seance');
+   case 'openS':sub='seance';return go('seance',{curId:d.id});
+   case 'open':{sub='cartes';render();const c=$('#c-'+d.k);scrollTo(0,0);if(c){c.scrollIntoView();c.classList.add('flash');setTimeout(()=>c.classList.remove('flash'),1400)}return}
+   case 'reset':if(confirm('Tout décocher ?')){doneAll[curId]={};store.set('done',doneAll);return render()}return;
+   case 'dup':{const s=clone(seances().find(x=>x.id===d.id));s.id='c'+Date.now();s.nom=s.nom.replace(/^Séance \d+ · /,'')+' (copie)';delete s.builtin;delete s.duree;custom.push(s);store.set('custom',custom);return go('home')}
+   case 'edit':draft=clone(custom.find(x=>x.id===d.id));pick=null;return go('compose');
+   case 'del':if(confirm('Supprimer cette séance ?')){custom=custom.filter(x=>x.id!==d.id);store.set('custom',custom);render()}return;
+   case 'newdraft':{const s=styleOf(d.id);draft={id:'c'+Date.now(),nom:'',style:s.id,blocs:s.blocs.map(b=>({nom:b.nom,items:[]}))};pick=null;return render()}
+   case 'cancel':draft=null;pick=null;return render();
+   case 'save':{
+     if(!draft.blocs.some(b=>b.items.length))return alert('Ajoute au moins un exercice.');
+     draft.nom=draft.nom.trim()||'Ma séance';
+     const i=custom.findIndex(x=>x.id===draft.id);i>=0?custom[i]=draft:custom.push(draft);store.set('custom',custom);
+     const id=draft.id;draft=null;pick=null;sub='seance';return go('seance',{curId:id})}
+   case 'bup':mv(draft.blocs,bi,bi-1);return render();
+   case 'bdown':mv(draft.blocs,bi,bi+1);return render();
+   case 'bdel':if(!draft.blocs[bi].items.length||confirm('Supprimer ce bloc ?')){draft.blocs.splice(bi,1);pick=null;render()}return;
+   case 'badd':draft.blocs.push({nom:'Nouveau bloc',items:[]});return render();
+   case 'iup':mv(draft.blocs[bi].items,ei,ei-1);return render();
+   case 'idown':mv(draft.blocs[bi].items,ei,ei+1);return render();
+   case 'idel':draft.blocs[bi].items.splice(ei,1);return render();
+   case 'pick':{const sb=styleOf(draft.style).blocs[bi];pick=pick&&pick.bi===bi?null:{bi,cat:sb&&sb.cats.length?'sug':'tous'};return render()}
+   case 'pcat':pick.cat=d.v;return render();
+   case 'add':draft.blocs[bi].items.push({id:d.id,o:{}});return render();
+   case 'libcat':libCat=d.v;return render();
+   case 'newex':newEx=!newEx;return render();
+   case 'saveex':{
+     const v=i=>$('#'+i).value.trim();if(!v('n-nom'))return alert('Donne un nom à l\'exercice.');
+     customEx.push({id:'x'+Date.now(),cat:v('n-cat'),icone:'⭐',nom:v('n-nom'),series:v('n-series')||null,reps:v('n-reps')||null,repos:v('n-repos')||null,charge:v('n-charge')||null,pourquoi:v('n-why'),consignes:v('n-cons').split('\n').map(x=>x.trim()).filter(Boolean)});
+     store.set('customEx',customEx);newEx=false;return render()}
+   case 'export':{const b=new Blob([JSON.stringify({custom,customEx},null,1)],{type:'application/json'});const u=document.createElement('a');u.href=URL.createObjectURL(b);u.download='mes-seances-paddle.json';u.click();return}
+   case 'rest':return startTimer(d.v);
+   case 'tstop':return stopTimer();
+  }
 });
 document.addEventListener('change',ev=>{
   const t=ev.target;
-  if(t.dataset.id){done[t.dataset.id]=t.checked;set('done',done);t.closest('.row').classList.toggle('done',t.checked);progress()}
+  if(t.dataset.k){if(t.checked)cheer();const m=doneAll[curId]||(doneAll[curId]={});m[t.dataset.k]=t.checked;store.set('done',doneAll);t.closest('.row').classList.toggle('done',t.checked);progress(seances().find(s=>s.id===curId))}
+  if(t.id==='imp'&&t.files[0]){const r=new FileReader();r.onload=()=>{try{const j=JSON.parse(r.result);(j.customEx||[]).forEach(x=>{if(!customEx.some(y=>y.id===x.id))customEx.push(x)});(j.custom||[]).forEach(x=>{if(!custom.some(y=>y.id===x.id))custom.push(x)});store.set('custom',custom);store.set('customEx',customEx);render()}catch(e){alert('Fichier invalide.')}};r.readAsText(t.files[0])}
 });
-document.addEventListener('input',ev=>{const t=ev.target;if(t.dataset.log){logs[t.dataset.log]=t.value;set('logs',logs)}});
+document.addEventListener('input',ev=>{
+  const t=ev.target;
+  if(t.dataset.log){logs[t.dataset.log]=t.value;store.set('logs',logs)}
+  if(t.id==='d-nom')draft.nom=t.value;
+  if(t.dataset.bn!==undefined)draft.blocs[+t.dataset.bn].nom=t.value;
+  if(t.dataset.o){const [b,e,f]=t.dataset.o.split('.');const it=draft.blocs[+b].items[+e];(it.o=it.o||{})[f]=t.value}
+});
 
+let ct;
+function cheer(){const c=$('#coach');c.classList.add('show');clearTimeout(ct);ct=setTimeout(()=>c.classList.remove('show'),2600)}
 let iv;
 function startTimer(txt){
-  const m=txt.match(/(\d+)\s*min(?:\s*(\d+))?/);let s=m?(+m[1])*60+(+m[2]||0):60;
+  const m=String(txt).match(/(\d+)\s*(min|s)(?:\s*(\d+))?/);let s=60;
+  if(m)s=m[2]==='min'?(+m[1])*60+(+m[3]||0):+m[1];
   stopTimer();$('#timer').classList.add('on');
   const tick=()=>{$('#tt').textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;if(s--<=0){clearInterval(iv);$('#tt').textContent='Go !';navigator.vibrate&&navigator.vibrate([200,100,200])}};
   tick();iv=setInterval(tick,1000);
